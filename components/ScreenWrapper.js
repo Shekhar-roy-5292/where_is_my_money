@@ -7,5 +7,6 @@ export const ScreenWrapper = ({children}) => {
     : Platform.OS === 'ios'
     ? 30
     : 0;
-  return <View style={{paddingTop: statusBarHeight}}>{children}</View>;
+  return <View>{children}</View>;
+  // return <View style={{paddingTop: statusBarHeight}}>{children}</View>;
 };
