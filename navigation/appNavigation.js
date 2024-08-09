@@ -6,6 +6,7 @@ import {Login} from '../screens/Login';
 import {SafeAreaView} from 'react-native';
 import AddTripScreen from '../screens/AddTripScreen';
 import AddExpenseScreen from '../screens/AddExpenseScreen';
+import TripExpensesScreen from '../screens/TripExpensesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ const AppNavigation = () => {
             options={{headerShown: false, navigationBarHidden: true}}
             name="AddExpense"
             component={AddExpenseScreen}
+          />
+          <Stack.Screen
+            options={{headerShown: false, navigationBarHidden: true}}
+            name="TripExpenses"
+            component={TripExpensesScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
