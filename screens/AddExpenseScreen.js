@@ -72,7 +72,9 @@ export default function AddExpenseScreen() {
               {categories.map(cat => {
                 // Determine the background color class based on the selected category
                 let bgColor = 'bg-white';
-                if (cat.value === category) bgColor = 'bg-green-200';
+                if (cat.value === category) {
+                  bgColor = 'bg-green-200';
+                }
                 return (
                   <TouchableOpacity
                     onPress={() => setCategory(cat.value)}
