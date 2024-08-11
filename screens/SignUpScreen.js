@@ -4,15 +4,23 @@ import {ScreenWrapper} from '../components/ScreenWrapper';
 import {colors} from '../theme';
 import BackButton from '../components/BackButton';
 import {useNavigation} from '@react-navigation/native';
-
+import Snackbar from 'react-native-snackbar';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {auth} from '../config/firebase';
 export default function SignUpScreen() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigation = useNavigation();
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (email && password) {
-      navigation.goBack();
-      navigation.navigate('Home');
+      // navigation.goBack();
+      // navigation.navigate('Home');
+      await createUserWithEmailAndPassword(auth, email, password);
+    } else {
+      Snackbar.show({
+        text: 'Please enter email and password',
+        backgroundColor: 'red',
+      });
     }
   };
   return (
