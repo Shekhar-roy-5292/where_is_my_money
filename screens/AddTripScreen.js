@@ -4,15 +4,38 @@ import {ScreenWrapper} from '../components/ScreenWrapper';
 import {colors} from '../theme';
 import BackButton from '../components/BackButton';
 import {useNavigation} from '@react-navigation/native';
+import Loading from '../components/Loading';
+import Snackbar from 'react-native-snackbar';
+import {addDoc} from 'firebase/firestore';
+import {tripRef} from '../config/firebase';
+import {useSelector} from 'react-redux';
+
 export default function AddTripScreen() {
   const [place, setPlace] = React.useState('');
   const [country, setCountry] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const {user} = useSelector(state => state.user);
   const navigation = useNavigation();
-  const handleAddTrrip = () => {
+
+  const handleAddTrrip = async () => {
     if (place && country) {
-      navigation.navigate('Home');
-      setPlace('');
-      setCountry('');
+      setLoading(true);
+      let doc = await addDoc(tripRef, {
+        place: place,
+        country: country,
+        userId: user.uid,
+      });
+      setLoading(false);
+      if (doc && doc.id) {
+        navigation.goBack();
+        setPlace('');
+        setCountry('');
+      }
+    } else {
+      Snackbar.show({
+        text: 'Please enter place and country',
+        backgroundColor: 'red',
+      });
     }
   };
   return (
@@ -54,14 +77,18 @@ export default function AddTripScreen() {
             />
           </View>
           <View>
-            <TouchableOpacity
-              style={{backgroundColor: colors.button}}
-              className="my-6 rounded-full p-3 shadow-sm mx-2"
-              onPress={handleAddTrrip}>
-              <Text className="text-center text-white text-lg font-bold">
-                Add Trip
-              </Text>
-            </TouchableOpacity>
+            {loading ? (
+              <Loading />
+            ) : (
+              <TouchableOpacity
+                style={{backgroundColor: colors.button}}
+                className="my-6 rounded-full p-3 shadow-sm mx-2"
+                onPress={handleAddTrrip}>
+                <Text className="text-center text-white text-lg font-bold">
+                  Add Trip
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </View>

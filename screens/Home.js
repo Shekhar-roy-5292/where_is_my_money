@@ -4,46 +4,33 @@ import React from 'react';
 import {colors} from '../theme/index';
 import randomImage from '../assets/images/randomImage';
 import EmptyList from '../components/EmptyList';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {signOut} from 'firebase/auth';
-import {auth} from '../config/firebase';
+import {auth, tripRef} from '../config/firebase';
+import {useSelector} from 'react-redux';
+import {getDocs, query, where} from 'firebase/firestore';
 export const Home = () => {
-  const item = [
-    {
-      id: 1,
-      place: 'London',
-      country: 'UK',
-    },
-    {
-      id: 2,
-      place: 'New York',
-      country: 'USA',
-    },
-    {
-      id: 3,
-      place: 'Paris',
-      country: 'France',
-    },
-    {
-      id: 4,
-      place: 'Tokyo',
-      country: 'Japan',
-    },
-    {
-      id: 5,
-      place: 'Berlin',
-      country: 'Germany',
-    },
-    {
-      id: 6,
-      place: 'Moscow',
-      country: 'Russia',
-    },
-  ];
   const navigation = useNavigation();
   const handleLogout = async () => {
     await signOut(auth);
   };
+  const [trips, setTrips] = React.useState([]);
+  const {user} = useSelector(state => state.user);
+  const isFocused = useIsFocused();
+  const fetchTrips = async () => {
+    const q = query(tripRef, where('userId', '==', user.uid));
+    const querySnapshot = await getDocs(q);
+    let data = [];
+    querySnapshot.forEach(doc => {
+      data.push({...doc.data(), id: doc.id});
+    });
+    setTrips(data);
+  };
+  React.useEffect(() => {
+    if (isFocused) {
+      fetchTrips();
+    }
+  }, [isFocused]);
   return (
     <ScreenWrapper className="flex-1">
       <View className="flex-row justify-between items-center p-4">
@@ -75,12 +62,12 @@ export const Home = () => {
         </View>
         <View style={{height: 430}}>
           <FlatList
-            data={item}
+            data={trips}
             numColumns={2}
             ListEmptyComponent={
               <EmptyList message={"You haven't recorded any trips yet ! "} />
             }
-            keyExtractor={item.id}
+            keyExtractor={trips.id}
             showsVerticalScrollIndicator={false}
             columnWrapperStyle={{
               justifyContent: 'space-between',
