@@ -89,18 +89,20 @@ import {auth} from '../config/firebase';
 import {ScreenWrapper} from '../components/ScreenWrapper';
 import BackButton from '../components/BackButton';
 import {colors} from '../theme';
-
+import {useDispatch, useSelector} from 'react-redux';
+import {setUserLoading} from '../redux/slices/user';
+import Loading from '../components/Loading';
 const SignUpScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigation = useNavigation();
-
+  const {userLoading} = useSelector(state => state.user);
+  const dispatch = useDispatch();
   const handleSignUp = async () => {
     if (email && password) {
       try {
+        dispatch(setUserLoading(true));
         await createUserWithEmailAndPassword(auth, email, password);
-        // You may want to navigate to a different screen upon successful sign up
-        // navigation.navigate('Home');
+        dispatch(setUserLoading(false));
       } catch (error) {
         Snackbar.show({
           text: error.message,
@@ -155,14 +157,18 @@ const SignUpScreen = () => {
             />
           </View>
           <View>
-            <TouchableOpacity
-              style={{backgroundColor: colors.button}}
-              className="my-6 rounded-full p-3 shadow-sm mx-2"
-              onPress={handleSignUp}>
-              <Text className="text-center text-white text-lg font-bold">
-                Sign Up
-              </Text>
-            </TouchableOpacity>
+            {userLoading ? (
+              <Loading />
+            ) : (
+              <TouchableOpacity
+                style={{backgroundColor: colors.button}}
+                className="my-6 rounded-full p-3 shadow-sm mx-2"
+                onPress={handleSignUp}>
+                <Text className="text-center text-white text-lg font-bold">
+                  Sign UP
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </View>
