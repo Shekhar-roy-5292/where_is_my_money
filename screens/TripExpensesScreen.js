@@ -13,38 +13,7 @@ import {expensesRef} from '../config/firebase';
 export default function TripExpensesScreen(props) {
   const {id, place, country} = props.route.params;
   // console.log(props);
-  const item = [
-    {
-      id: 1,
-      title: 'ate fruit',
-      amount: 10,
-      category: 'food',
-    },
-    {
-      id: 2,
-      title: 'drink water',
-      amount: 5,
-      category: 'drinks',
-    },
-    {
-      id: 3,
-      title: 'bought jacket',
-      amount: 222,
-      category: 'shopping',
-    },
-    {
-      id: 4,
-      title: 'Watched a movie',
-      amount: 100,
-      category: 'entertainment',
-    },
-    {
-      id: 5,
-      title: 'buy some book',
-      amount: 10,
-      category: 'books',
-    },
-  ];
+
   const navigation = useNavigation();
   const [expenses, setExpenses] = React.useState([]);
   const isFocused = useIsFocused();
@@ -100,7 +69,7 @@ export default function TripExpensesScreen(props) {
             ListEmptyComponent={
               <EmptyList message={"You haven't recorded any Expenses yet ! "} />
             }
-            keyExtractor={item.id}
+            keyExtractor={expenses.id}
             showsVerticalScrollIndicator={false}
             className="mx-1"
             renderItem={({item}) => {
