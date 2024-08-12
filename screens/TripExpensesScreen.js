@@ -34,9 +34,7 @@ export default function TripExpensesScreen(props) {
   return (
     <ScreenWrapper className="flex-1">
       <View className="relative mt-5">
-        <View className="absolute top-0 left-0">
-          <BackButton />
-        </View>
+        <View className="absolute top-0 left-0">{/* <BackButton /> */}</View>
         <Text className="text-xl font-bold text-center" style={colors.heading}>
           {place}
         </Text>

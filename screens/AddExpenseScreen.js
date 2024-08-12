@@ -53,7 +53,7 @@ export default function AddExpenseScreen(props) {
         <View>
           <View className="relative mt-5">
             <View className="absolute top-0 left-0">
-              <BackButton />
+              {/* <BackButton /> */}
             </View>
             <Text
               className="text-xl font-bold text-center"
