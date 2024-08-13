@@ -8,15 +8,11 @@ export default function ExpensesCard({item}) {
       style={{backgroundColor: categoryBG[item.category]}}
       className="flex-row justify-between items-center p-3 px-5 mb-3 bg-red-300 rounded-2xl">
       <View>
-        <Text className="font-bold" style={colors.heading}>
-          {item.title}
-        </Text>
-        <Text className="text-xs" style={colors.heading}>
-          {item.category}
-        </Text>
+        <Text className=" text-slate-950 font-bold">{item.title}</Text>
+        <Text className="text-xs  text-slate-950">{item.category}</Text>
       </View>
       <View>
-        <Text>{item.amount}</Text>
+        <Text className=" text-slate-950">{item.amount}</Text>
       </View>
     </View>
   );

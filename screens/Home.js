@@ -34,7 +34,7 @@ export const Home = () => {
   return (
     <ScreenWrapper className="flex-1">
       <View className="flex-row justify-between items-center p-4">
-        <Text style={colors.heading} className="font-bold text-3xl shadow-sm">
+        <Text className="font-bold text-slate-950 text-3xl shadow-sm">
           MoneyLead
         </Text>
         <TouchableOpacity
@@ -51,13 +51,13 @@ export const Home = () => {
       </View>
       <View className="px-4 space-y-4">
         <View className="flex-row justify-between items-center">
-          <Text style={colors.heading} className="font-bold text-xl">
+          <Text className=" text-slate-950 font-bold text-xl">
             Recent Trips
           </Text>
           <TouchableOpacity
             onPress={() => navigation.navigate('AddTrip')}
             className="p-2 px-3 bg-white border border-gray-200 rounded-full">
-            <Text style={colors.heading}>Add Trip</Text>
+            <Text className=" text-slate-950">Add Trip</Text>
           </TouchableOpacity>
         </View>
         <View style={{height: 430}}>
@@ -80,10 +80,10 @@ export const Home = () => {
                   className="bg-white p-3 rounded-2xl mb-3 shadow-sm">
                   <View>
                     <Image source={randomImage()} className="w-36 h-36 mb-2" />
-                    <Text style={colors.heading} className="font-bold">
+                    <Text className="font-bold text-slate-950">
                       {item.place}
                     </Text>
-                    <Text style={colors.heading} className="font-xs">
+                    <Text className="font-xs  text-slate-950">
                       {item.country}
                     </Text>
                   </View>

@@ -40,15 +40,13 @@ export default function AddTripScreen() {
   };
   return (
     <ScreenWrapper>
-      <View className="h-full flex justify-between">
+      <View className="h-full  flex justify-between">
         <View>
           <View className="relative mt-5">
             <View className="absolute top-0 left-0">
               {/* <BackButton /> */}
             </View>
-            <Text
-              className="text-xl font-bold text-center"
-              style={colors.heading}>
+            <Text className="text-xl font-bold text-center text-slate-950">
               Add Trip
             </Text>
           </View>
@@ -59,7 +57,7 @@ export default function AddTripScreen() {
             />
           </View>
           <View className="space-y-2 mx-2">
-            <Text style={colors.heading} className="text-lg font-bold">
+            <Text className="text-lg font-bold  text-slate-950">
               Where On Earth ?
             </Text>
             <TextInput
@@ -67,7 +65,7 @@ export default function AddTripScreen() {
               onChangeText={value => setPlace(value)}
               className="p-4 bg-white rounded-full mb-3"
             />
-            <Text style={colors.heading} className="text-lg font-bold">
+            <Text className="text-lg font-bold  text-slate-950">
               Which Country ?
             </Text>
             <TextInput

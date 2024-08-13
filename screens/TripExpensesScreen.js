@@ -35,12 +35,10 @@ export default function TripExpensesScreen(props) {
     <ScreenWrapper className="flex-1">
       <View className="relative mt-5">
         <View className="absolute top-0 left-0">{/* <BackButton /> */}</View>
-        <Text className="text-xl font-bold text-center" style={colors.heading}>
+        <Text className="text-xl font-bold text-center  text-slate-950">
           {place}
         </Text>
-        <Text className="text-xs text-center" style={colors.heading}>
-          {country}
-        </Text>
+        <Text className="text-xs text-center  text-slate-950">{country}</Text>
       </View>
       <View className="flex-row justify-center items-center rounded-xl mx-4 mb-4">
         <Image
@@ -50,7 +48,7 @@ export default function TripExpensesScreen(props) {
       </View>
       <View className="px-4 space-y-4">
         <View className="flex-row justify-between items-center">
-          <Text style={colors.heading} className="font-bold text-xl">
+          <Text className="font-bold text-slate-950 text-xl">
             Recent Expenses
           </Text>
           <TouchableOpacity
@@ -58,7 +56,7 @@ export default function TripExpensesScreen(props) {
               navigation.navigate('AddExpense', {id, place, country})
             }
             className="p-2 px-3 bg-white border border-gray-200 rounded-full">
-            <Text style={colors.heading}>Add Expenses</Text>
+            <Text className=" text-slate-950">Add Expenses</Text>
           </TouchableOpacity>
         </View>
         <View style={{height: 430}}>

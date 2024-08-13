@@ -125,9 +125,7 @@ const SignUpScreen = () => {
             <View className="absolute top-0 left-0">
               <BackButton />
             </View>
-            <Text
-              className="text-xl font-bold text-center"
-              style={colors.heading}>
+            <Text className=" text-slate-950 text-xl font-bold text-center">
               Sign Up
             </Text>
           </View>
@@ -138,17 +136,13 @@ const SignUpScreen = () => {
             />
           </View>
           <View className="space-y-2 mx-2">
-            <Text style={colors.heading} className="text-lg font-bold">
-              Email
-            </Text>
+            <Text className="text-lg text-slate-950 font-bold">Email</Text>
             <TextInput
               value={email}
               onChangeText={setEmail}
               className="p-4 bg-white rounded-full mb-3"
             />
-            <Text style={colors.heading} className="text-lg font-bold">
-              Password
-            </Text>
+            <Text className=" text-slate-950 text-lg font-bold">Password</Text>
             <TextInput
               value={password}
               secureTextEntry

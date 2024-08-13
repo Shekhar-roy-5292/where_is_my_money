@@ -15,9 +15,7 @@ export default function WelcomeScreen() {
           />
         </View>
         <View className="mx-5 mb-20">
-          <Text
-            style={colors.heading}
-            className="text-center font-bold text-4xl mb-10">
+          <Text className="text-center text-slate-950 font-bold text-4xl mb-10">
             Money Lead
           </Text>
           <TouchableOpacity

@@ -55,9 +55,7 @@ export default function AddExpenseScreen(props) {
             <View className="absolute top-0 left-0">
               {/* <BackButton /> */}
             </View>
-            <Text
-              className="text-xl font-bold text-center"
-              style={colors.heading}>
+            <Text className="text-xl font-bold text-center  text-slate-950">
               Add Expenses
             </Text>
           </View>
@@ -68,7 +66,7 @@ export default function AddExpenseScreen(props) {
             />
           </View>
           <View className="space-y-2 mx-2">
-            <Text style={colors.heading} className="text-lg font-bold">
+            <Text className="text-lg font-bold  text-slate-950">
               For What ?
             </Text>
             <TextInput
@@ -76,9 +74,7 @@ export default function AddExpenseScreen(props) {
               onChangeText={value => setTitle(value)}
               className="p-4 bg-white rounded-full mb-3"
             />
-            <Text style={colors.heading} className="text-lg font-bold">
-              How Much?
-            </Text>
+            <Text className="text-lg font-bold  text-slate-950">How Much?</Text>
             <TextInput
               value={amount}
               onChangeText={value => setAmount(value)}
@@ -98,8 +94,8 @@ export default function AddExpenseScreen(props) {
                   <TouchableOpacity
                     onPress={() => setCategory(cat.value)}
                     key={cat.value}
-                    className={`rounded-full px-4 p-3 mb-2 mr-2 ${bgColor}`}>
-                    <Text>{cat.title}</Text>
+                    className={`rounded-full  px-4 p-3 mb-2 mr-2 ${bgColor}`}>
+                    <Text className=" text-slate-950">{cat.title}</Text>
                   </TouchableOpacity>
                 );
               })}
