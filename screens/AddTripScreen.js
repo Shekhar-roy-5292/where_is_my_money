@@ -63,7 +63,7 @@ export default function AddTripScreen() {
             <TextInput
               value={place}
               onChangeText={value => setPlace(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
             <Text className="text-lg font-bold  text-slate-950">
               Which Country ?
@@ -71,7 +71,7 @@ export default function AddTripScreen() {
             <TextInput
               value={country}
               onChangeText={value => setCountry(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
           </View>
           <View>

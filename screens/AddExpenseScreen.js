@@ -72,13 +72,13 @@ export default function AddExpenseScreen(props) {
             <TextInput
               value={title}
               onChangeText={value => setTitle(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
             <Text className="text-lg font-bold  text-slate-950">How Much?</Text>
             <TextInput
               value={amount}
               onChangeText={value => setAmount(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
           </View>
           <View className="mx-2 space-x-2">

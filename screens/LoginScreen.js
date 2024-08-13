@@ -58,17 +58,17 @@ export default function LoginScreen() {
             <TextInput
               value={email}
               onChangeText={value => setEmail(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
             <Text className="text-lg text-slate-950 font-bold">Password</Text>
             <TextInput
               value={password}
               secureTextEntry={true}
               onChangeText={value => setPassword(value)}
-              className="p-4 bg-white rounded-full mb-3"
+              className="text-slate-950 p-4 bg-white rounded-full mb-3"
             />
             <TouchableOpacity className="flex-row justify-end">
-              <Text>Forget Password !</Text>
+              <Text className="text-slate-950">Forget Password !</Text>
             </TouchableOpacity>
           </View>
           <View>

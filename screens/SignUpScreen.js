@@ -140,14 +140,14 @@ const SignUpScreen = () => {
             <TextInput
               value={email}
               onChangeText={setEmail}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
             <Text className=" text-slate-950 text-lg font-bold">Password</Text>
             <TextInput
               value={password}
               secureTextEntry
               onChangeText={setPassword}
-              className="p-4 bg-white rounded-full mb-3"
+              className="p-4 text-slate-950 bg-white rounded-full mb-3"
             />
           </View>
           <View>
